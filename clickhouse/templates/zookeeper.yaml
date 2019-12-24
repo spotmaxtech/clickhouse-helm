@@ -109,3 +109,6 @@ spec:
       resources:
         requests:
           storage: {{ .Values.zookeeper.persistence.size }}
+      {{- if .Values.clickhouse.persistence.storageClass }}
+      storageClassName: {{ .Values.clickhouse.persistence.storageClass }}
+      {{- end }}
