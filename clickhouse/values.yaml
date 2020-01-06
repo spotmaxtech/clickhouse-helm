@@ -35,14 +35,16 @@ clickhouse:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     # storageClass: "efficiency-delete-wait"
-    storageClass: "gp2"
+    storageClass: "disk"
     accessModes:
       - ReadWriteOnce
     size: 20Gi
 
   ## Node selector
   ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-  nodeSelector: {}
+  nodeSelector:
+    node.spotmax/team: adn
+    failure-domain.beta.kubernetes.io/zone: us-east-1a
 
   ## Affinity
   ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
@@ -84,14 +86,16 @@ zookeeper:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     # storageClass: "efficiency-delete-wait"
-    storageClass: "gp2"
+    storageClass: "disk"
     accessModes:
       - ReadWriteOnce
     size: 20Gi
 
   ## Node selector
   ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-  nodeSelector: {}
+  nodeSelector:
+    node.spotmax/team: adn
+    failure-domain.beta.kubernetes.io/zone: us-east-1a
 
   ## Affinity
   ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
